@@ -7,9 +7,13 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc --pretty --noEmit",
-    "lint": "eslint ./src --ext ts --ext tsx",
     "test": "jest",
-    "test-all": "yarn lint && yarn type-check && yarn test"
+    "test-all": "yarn lint && yarn type-check && yarn test",
+    "build-stats": "ANALYZE=true npm run build",
+    "export": "next export",
+    "build-prod": "run-s clean build export",
+    "clean": "rimraf .next out",
+    "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
     "next": "10.0.4",
